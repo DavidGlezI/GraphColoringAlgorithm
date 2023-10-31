@@ -11,7 +11,7 @@ using namespace std;
 // Complejidad temporal: O(V^2)
 std::vector<int> GraphColoring(int V, std::vector<std::vector<int>>& adj){
     std::vector<bool> colorDisponible(V, true); // Ponemos todos los colores disponibles en un principio
-    std::vector<int> resultados(V, 0);
+    std::vector<int> resultados(V, -1);
 
     resultados.insert(resultados.begin(),0); // Inicializamos el primer vertice con el primer color (0)
 
