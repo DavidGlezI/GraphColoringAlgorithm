@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -11,9 +12,11 @@ using namespace std;
 // Complejidad temporal: O(V^2)
 std::vector<int> GraphColoring(int V, std::vector<std::vector<int>>& adj){
     std::vector<bool> colorDisponible(V, true); // Ponemos todos los colores disponibles en un principio
-    std::vector<int> resultados(V, -1);
+    int maxcolors; 
+    maxcolors = V + 1; // Hacemos esto porque por alguna razón tenemos segmentation fault si declaramos lo que hay en el arreglo como -1 o INT_MAX por alguna razon
+    std::vector<int> resultados(V, maxcolors); // Iniciamos el vector con un color que no existe para que no haya problemas
 
-    resultados.insert(resultados.begin(),0); // Inicializamos el primer vertice con el primer color (0)
+    resultados[0] = 0;// Inicializamos el primer vertice con el primer color (0)
 
     for(int vertice=1; vertice< V; vertice++){ // Iteramos en los demás vertices
 
